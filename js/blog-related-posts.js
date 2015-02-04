@@ -90,8 +90,7 @@ function printRelatedLabels_thumbs(current) {
     if (relatedTitles.length > 0) document.write('<h2>' + relatedpoststitle + '</h2>');
     document.write('<div style="clear: both;"/>');
     while (i < relatedTitles.length && i < 20 && i < maxresults) {
-        document.write('<div style="width:20%;overflow:hidden;float:left;>');
-        document.write('<a style="text-decoration:none;padding:5px;float:left;');
+        document.write('<a style="display:block;overflow:hidden;width:20%;text-decoration:none;padding:0;float:left;');
 
         if (i != 0)
             document.write('border-left:solid 0.5px ' + splitbarcolor + ';"');
@@ -99,7 +98,6 @@ function printRelatedLabels_thumbs(current) {
             document.write('"');
 
         document.write(' href="' + relatedUrls[r] + '"><img style="width:98%;margin-right:2%;padding:0;border:0px;" src="' + thumburl[r] + '"/><br/><div style="width:72px;padding-left:3px;height:65px;border: 0pt none ; margin: 3px 0pt 0pt; padding: 0pt; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal;">' + relatedTitles[r] + '</div></a>');
-        document.write('</div>');
         i++;
         if (r < relatedTitles.length - 1) {
             r++;
