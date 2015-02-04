@@ -8,9 +8,11 @@ var thumburl = new Array();
 function related_results_labels_thumbs(json) {
     for (var i = 0; i < json.feed.entry.length; i++) {
         var entry = json.feed.entry[i];
-        console.log(entry);
         relatedTitles[relatedTitlesNum] = entry.title.$t;
         try {
+            var imgUrl = '';
+            imgUrl = entry.media$thumbnail.url.replace(/\/s72\-c/, "/s300-c");
+            console.log(imgUrl);
             thumburl[relatedTitlesNum] = entry.media$thumbnail.url;
         } catch (error) {
             s=entry.content.$t;
