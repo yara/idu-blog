@@ -8,6 +8,7 @@ var thumburl = new Array();
 function related_results_labels_thumbs(json) {
     for (var i = 0; i < json.feed.entry.length; i++) {
         var entry = json.feed.entry[i];
+        console.log(entry);
         relatedTitles[relatedTitlesNum] = entry.title.$t;
         try {
             thumburl[relatedTitlesNum] = entry.media$thumbnail.url;
