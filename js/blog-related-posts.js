@@ -10,9 +10,8 @@ function related_results_labels_thumbs(json) {
         var entry = json.feed.entry[i];
         relatedTitles[relatedTitlesNum] = entry.title.$t;
         try {
-            var imgUrl = '';
+            var imgUrl = entry.media$thumbnail.url;
             imgUrl = entry.media$thumbnail.url.replace(/\/s72\-c/, "/s300-c");
-            console.log(imgUrl);
             thumburl[relatedTitlesNum] = entry.media$thumbnail.url;
         } catch (error) {
             s=entry.content.$t;
@@ -91,6 +90,7 @@ function printRelatedLabels_thumbs(current) {
     if (relatedTitles.length > 0) document.write('<h2>' + relatedpoststitle + '</h2>');
     document.write('<div style="clear: both;"/>');
     while (i < relatedTitles.length && i < 20 && i < maxresults) {
+        document.write('<div style="width:20%;overflow:hidden;float:left;');
         document.write('<a style="text-decoration:none;padding:5px;float:left;');
 
         if (i != 0)
@@ -98,8 +98,8 @@ function printRelatedLabels_thumbs(current) {
         else
             document.write('"');
 
-        document.write(' href="' + relatedUrls[r] + '"><img style="width:72px;height:72px;border:0px;" src="' + thumburl[r] + '"/><br/><div style="width:72px;padding-left:3px;height:65px;border: 0pt none ; margin: 3px 0pt 0pt; padding: 0pt; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal;">' + relatedTitles[r] + '</div></a>');
-
+        document.write(' href="' + relatedUrls[r] + '"><img style="border:0px;" src="' + thumburl[r] + '"/><br/><div style="width:72px;padding-left:3px;height:65px;border: 0pt none ; margin: 3px 0pt 0pt; padding: 0pt; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal;">' + relatedTitles[r] + '</div></a>');
+        document.write('</div>');
         i++;
         if (r < relatedTitles.length - 1) {
             r++;
