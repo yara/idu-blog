@@ -90,7 +90,7 @@ function printRelatedLabels_thumbs(current) {
     if (relatedTitles.length > 0) document.write('<h2>' + relatedpoststitle + '</h2>');
     document.write('<div style="clear: both;"/>');
     while (i < relatedTitles.length && i < 20 && i < maxresults) {
-        document.write('<div style="width:20%;overflow:hidden;float:left;');
+        document.write('<div style="width:20%;overflow:hidden;float:left;>');
         document.write('<a style="text-decoration:none;padding:5px;float:left;');
 
         if (i != 0)
